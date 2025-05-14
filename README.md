@@ -4,10 +4,10 @@ Demo
 
 https://app-taxi-data-snowflak-project-vb.streamlit.app/
 
-![1](https://asset.cloudinary.com/vaibhav-codexpress/7dbfc147d8f6d1f3b1d7cd698c4f0ff6)
+![1](https://res.cloudinary.com/vaibhav-codexpress/image/upload/v1747202557/Screenshot_2025-05-14_at_2.01.52_AM_d1kenq.png)
 
 
-![2](https://asset.cloudinary.com/vaibhav-codexpress/7dbfc147d8f6d1f3b1d7cd698c4f0ff6)
+![2](https://res.cloudinary.com/vaibhav-codexpress/image/upload/v1747202556/Screenshot_2025-05-14_at_2.02.05_AM_zdhvk2.png)
 
 
-![3](https://asset.cloudinary.com/vaibhav-codexpress/05eab61f2919782e88087647496baeba)
+![3](https://res.cloudinary.com/vaibhav-codexpress/image/upload/v1747202556/Screenshot_2025-05-14_at_2.02.13_AM_ftm2sg.png)
