@@ -22,7 +22,7 @@ st.title("❄️ Taxi Data Project (Snowflake Connector + Streamlit)")
 # Store your Snowflake credentials in .streamlit/secrets.toml under [snowflake]
 # sf_creds = st.secrets["snowflake"]
 
-
+creds = st.secrets["snowflake"]
 @st.cache_resource
 def get_snowflake_connection():
     creds = st.secrets["snowflake"]
@@ -86,8 +86,10 @@ location_info = {
      43: ("Grand Central", "Manhattan"),
 }
 
-db = os.getenv("SNOWFLAKE_DATABASE")
-schema = os.getenv("SNOWFLAKE_SCHEMA")
+# db = os.getenv("SNOWFLAKE_DATABASE")
+# schema = os.getenv("SNOWFLAKE_SCHEMA")
+db = creds["database"]
+schema = creds["schema"]
 
 for loc, (name, borough) in location_info.items():
     st.markdown(f"**{name} ({borough}) — Location {loc}**")
