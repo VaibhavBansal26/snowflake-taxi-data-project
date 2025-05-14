@@ -22,35 +22,51 @@ st.title("❄️ Taxi Data Project (Snowflake Connector + Streamlit)")
 # Store your Snowflake credentials in .streamlit/secrets.toml under [snowflake]
 # sf_creds = st.secrets["snowflake"]
 
+
 @st.cache_resource
-def get_snowflake_connection(env_path=None):
-    if env_path:
-        load_dotenv(dotenv_path=env_path)
-    else:
-        load_dotenv()
-
-    password = os.getenv("SNOWFLAKE_PASSWORD")
-    account = os.getenv("SNOWFLAKE_ACCOUNT")
-    user = os.getenv("SNOWFLAKE_USER")
-    warehouse = os.getenv("SNOWFLAKE_WAREHOUSE")
-    database = os.getenv("SNOWFLAKE_DATABASE")
-    schema = os.getenv("SNOWFLAKE_SCHEMA")
-    role = os.getenv("SNOWFLAKE_ROLE")
-
+def get_snowflake_connection():
+    creds = st.secrets["snowflake"]
     conn = snowflake.connector.connect(
-        user=user,
-        password=password,
-        account=account,
-        warehouse=warehouse,
-        database=database,
-        schema=schema,
-        role=role,
+        user      = creds["user"],
+        password  = creds["password"],
+        account   = creds["account"],
+        warehouse = creds["warehouse"],
+        database  = creds["database"],
+        schema    = creds["schema"],
+        role      = creds.get("role"),
+        login_timeout=60,
     )
     return conn
 
+# @st.cache_resource
+# def get_snowflake_connection(env_path=None):
+#     if env_path:
+#         load_dotenv(dotenv_path=env_path)
+#     else:
+#         load_dotenv()
+
+#     password = os.getenv("SNOWFLAKE_PASSWORD")
+#     account = os.getenv("SNOWFLAKE_ACCOUNT")
+#     user = os.getenv("SNOWFLAKE_USER")
+#     warehouse = os.getenv("SNOWFLAKE_WAREHOUSE")
+#     database = os.getenv("SNOWFLAKE_DATABASE")
+#     schema = os.getenv("SNOWFLAKE_SCHEMA")
+#     role = os.getenv("SNOWFLAKE_ROLE")
+
+#     conn = snowflake.connector.connect(
+#         user=user,
+#         password=password,
+#         account=account,
+#         warehouse=warehouse,
+#         database=database,
+#         schema=schema,
+#         role=role,
+#     )
+#     return conn
+
 # === Step 1: Load environment variables from a custom path ===
-dotenv_path = r".env"
-load_dotenv(dotenv_path=dotenv_path)
+# dotenv_path = r".env"
+# load_dotenv(dotenv_path=dotenv_path)
 
 
 conn = get_snowflake_connection()
