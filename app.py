@@ -14,7 +14,7 @@ st.set_page_config(
     layout="wide",
 )
 
-st.title("❄️ Taxi Data Project (Snowflake Connector + Streamlit)")
+st.title("❄️ Taxi Data Project (Snowflake + Snowpark + Streamlit)")
 
 # ——————————————————————————————————————————————————————————————————————————
 #  Snowflake connection using connector (no Snowpark session)
